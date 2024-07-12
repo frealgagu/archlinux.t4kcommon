@@ -4,7 +4,7 @@
 
 pkgname=t4kcommon
 pkgver=0.1.1
-pkgrel=7
+pkgrel=8
 pkgdesc="A library of code shared between tuxmath and tuxtype."
 arch=("i686" "x86_64")
 url="https://github.com/tux4kids/${pkgname}"
@@ -18,6 +18,7 @@ source=(
   "wrapped_lines.patch"
   "menu_font_size.patch"
   "missing_texts.patch"
+  "linebreak_gcc14.patch"
 )
 sha256sums=(
   "be4cadbcf2728ed6efb1c71e96c209184a7829b65af3625d9410a29fb2fd775a"
@@ -26,6 +27,7 @@ sha256sums=(
   "0643e9eada6fdba1a295798ea3d09be71cafbf5af6ba132dd15a4f372d58dcf3"
   "73097e6aea0660be08e5b9fe8d66ec0bf466e59924663ee520a556bc7b8c4516"
   "a1146b7b1705f95b056ff2c2de5c28b4fad1e953761044358dfa0c08314d236a"
+  "6f8adf352a19eef08efc51eb4d5659aa6f6458c20d7f4edd2f03cd2e4dc3aa07"
 )
 
 prepare() {
@@ -36,6 +38,7 @@ prepare() {
   patch -Np1 -i "${srcdir}/wrapped_lines.patch"
   patch -Np1 -i "${srcdir}/menu_font_size.patch"
   patch -Np1 -i "${srcdir}/missing_texts.patch"
+  patch -Np1 -i "${srcdir}/linebreak_gcc14.patch"
 }
 
 build() {
