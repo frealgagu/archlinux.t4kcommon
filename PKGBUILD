@@ -4,7 +4,7 @@
 
 pkgname=t4kcommon
 pkgver=0.1.1
-pkgrel=8
+pkgrel=9
 pkgdesc="A library of code shared between tuxmath and tuxtype."
 arch=("i686" "x86_64")
 url="https://github.com/tux4kids/${pkgname}"
@@ -45,7 +45,8 @@ build() {
   cd "${srcdir}/${pkgname}-upstream-${pkgver}"
 
   ./configure \
-    --prefix=/usr
+    --prefix=/usr \
+    CFLAGS=-std=gnu99
   make
 }
 
